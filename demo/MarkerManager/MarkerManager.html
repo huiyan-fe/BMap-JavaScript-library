@@ -1,0 +1,123 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+<title>标注管理</title>
+</head>
+<body>
+	<div style="width:550px;height:450px;border:1px solid gray;" id="container"></div>
+	<div id="log" style="background:#000;color:red;position:absolute;left:580px;top:20px;width:200px;height:200px;"></div>
+	<button id="clearMarkers">clearMarkers</button>
+	<button id="show">show markers</button>
+	<button id="hide">hide markers</button>
+	<button id="toggle">toggle markers</button>
+<script type="text/javascript" src="../../src/MarkerManager/MarkerManager.min.js"></script>
+<script type="text/javascript">
+	var map = new BMap.Map("container");
+	var point = new BMap.Point(116.404, 39.915);
+	map.centerAndZoom(point,15);
+	map.enableScrollWheelZoom();
+
+	var padding = 200;
+	var mgr = new BMapLib.MarkerManager(map,{
+		borderPadding: padding
+		,maxZoom: 18
+		,trackMarkers: true
+	});
+
+    var	markersConfig = [{minZoom: 1, maxZoom: 10, markerCount:80 }
+					,{minZoom: 11, maxZoom: 12, markerCount:10 }
+					,{minZoom: 13, maxZoom: 15, markerCount:150 }
+					,{minZoom: 16, maxZoom: 17, markerCount:10 }
+					,{minZoom: 18, maxZoom: 19, markerCount:100 }
+					];
+	for(var i in markersConfig){
+	  	var t = markersConfig[i];
+	  	var mks = getRandomMarker(map,t.markerCount,padding);
+	  	mgr.addMarkers(mks,t.minZoom,t.maxZoom)
+	 }
+    mgr.showMarkers();
+    log();
+    map.addEventListener("zoomend",function(){
+    		log();
+    	});
+	map.addEventListener("dragend",function(){
+    		log();
+    	});
+	$("clearMarkers").onclick = function(){
+		mgr.clearMarkers();
+		log();
+	}
+    $("show").onclick = function(){
+		mgr.show();
+		log();
+    }
+    $("hide").onclick = function(){
+    	mgr.hide();
+    	log();
+    }
+    $("toggle").onclick = function(){
+    	mgr.toggle();
+    	log();
+    }
+	/**
+     * 随机生成marker
+     * @param {Map} map 地图map对象
+     * @param {Number} num 要产生的marker的数量
+     * @param {Boolean} isInViewport 是否需要只在视口中的marker
+     * @return {Array} marker的数组集合
+     */
+	function getRandomMarker(map,num,borderPadding){
+		var container = map.getContainer()
+		, markers = []
+		, height = parseInt(container.offsetHeight,10) / 2  + borderPadding
+		, width = parseInt(container.offsetWidth,10) / 2  + borderPadding;
+
+		var center = map.getCenter(), pixel = map.pointToPixel(center);
+		var realBounds = mgr._getRealBounds();
+		//随机一个新的坐标，不超过地图+borderPadding范围
+		for(var i = num; i--;){
+			var w = width * Math.random(), h = height * Math.random();
+			var newPixel = { x : pixel.x + (Math.random() > 0.5 ? w : -w),
+						   y : pixel.y + (Math.random() > 0.5 ? h : -h)}
+			, newPoint = map.pixelToPoint(newPixel);
+
+			var marker = new BMap.Marker(newPoint);
+
+			if(realBounds.containsPoint(newPoint)){
+				markers.push(marker);
+				(function(mk){
+					mk.addEventListener("dblclick",function(){
+							mgr.removeMarker(mk);
+							log();
+						});
+				})(marker);
+			}
+		}
+		return markers;
+	}
+	/**
+	 * 创建div，便于显示调试信息
+	 * @return none
+	 *
+	 */
+	function log(){
+	   var str = "当前zoom"+ map.getZoom() +
+	   "<div>地图上marker的数量" + mgr.getMarkerCount(map.getZoom())+ "</div>";
+		document.getElementById("log").innerHTML = "<h3>调试信息显示：</h3>"+ str;
+	}
+	/**
+	 * 根据id获取dom元素
+	 * @param {String} id 元素ID
+	 * @return none
+	 *
+	 */
+	function $(id){
+		return document.getElementById(id);
+	}
+
+</script>
+</body>
+</html>
+
