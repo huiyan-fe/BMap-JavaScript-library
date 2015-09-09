@@ -1,0 +1,67 @@
+
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8" /> 
+<title>LuShu Demo</title> 
+<script src="http://api.map.baidu.com/api?v=2.0&ak=jIwkULSx4biGbOxKkB8twKG3"></script>
+<script type="text/javascript" src="../../src/LuShu/LuShu.min.js"></script>
+</head> 
+<body> 
+<div id="map_canvas" style="width:600px;height:480px"></div> 
+<div id="result" style="float:right;position:absolute;left:700px;top:0;"></div>
+<button id="run" >run</button> 
+<button id="stop">stop</button> 
+<button id="pause">pause</button> 
+<button id="hide">hide infoWindow</button> 
+<button id="show">show infoWindow</button> 
+<script> 
+var map = new BMap.Map('map_canvas');
+map.enableScrollWheelZoom();
+map.centerAndZoom(new BMap.Point(116.404, 39.915), 13);
+var lushu;
+// 实例化一个驾车导航用来生成路线
+var drv = new BMap.DrivingRoute('北京', {
+    onSearchComplete: function(res) {
+        if (drv.getStatus() == BMAP_STATUS_SUCCESS) {
+            var arrPois = res.getPlan(0).getRoute(0).getPath();
+            map.addOverlay(new BMap.Polyline(arrPois, {strokeColor: '#111'}));
+            map.setViewport(arrPois);
+            
+            lushu = new BMapLib.LuShu(map,arrPois,{
+            defaultContent:"",//"从天安门到百度大厦"
+            autoView:true,//是否开启自动视野调整，如果开启那么路书在运动过程中会根据视野自动调整
+            icon  : new BMap.Icon('images/car.png', new BMap.Size(52,26),{anchor : new BMap.Size(27, 13)}),
+            speed: 4500,
+            enableRotation:true,//是否设置marker随着道路的走向进行旋转
+            landmarkPois: [
+               {lng:116.314782,lat:39.913508,html:'加油站',pauseTime:2},
+               {lng:116.315391,lat:39.964429,html:'高速公路收费<div><img src="http://map.baidu.com/img/logo-map.gif"/></div>',pauseTime:3},
+               {lng:116.381476,lat:39.974073,html:'肯德基早餐<div><img src="http://ishouji.baidu.com/resource/images/map/show_pic04.gif"/></div>',pauseTime:2}
+            ]});          
+        }
+    }
+});
+drv.search('天安门', '百度大厦');
+//绑定事件
+$("run").onclick = function(){
+    lushu.start();
+}
+$("stop").onclick = function(){
+    lushu.stop();
+}
+$("pause").onclick = function(){
+    lushu.pause();
+}
+$("hide").onclick = function(){
+    lushu.hideInfoWindow();
+}
+$("show").onclick = function(){
+    lushu.showInfoWindow();
+}
+function $(element){
+    return document.getElementById(element);
+}
+</script> 
+</body> 
+</html> 

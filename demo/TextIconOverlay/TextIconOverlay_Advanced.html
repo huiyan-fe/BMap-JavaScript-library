@@ -1,0 +1,72 @@
+﻿<!DOCTYPE>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>BMapLib.TextIconOverlay Advanced</title>
+	<style type="text/css">
+		#mapDiv{ 
+            height:400px; 
+            width:800px;
+        }
+	</style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>      	
+    <script type="text/javascript" src="../../src/TextIconOverlay/TextIconOverlay.min.js"></script>
+</head>
+<body>
+	<div id="mapDiv"></div>
+</body>
+	
+<script type="text/javascript">
+    var EXAMPLE_URL = 'http://api.map.baidu.com/library/TextIconOverlay/1.2/examples/';
+	var map = new BMap.Map("mapDiv");            
+	map.enableScrollWheelZoom();
+	var point = new BMap.Point(116.404, 39.915);   
+	map.centerAndZoom(point,13);      
+        
+    var marker = new  BMap.Marker(point);
+    map.addOverlay(marker);
+
+    var myStyles = [{
+        url: EXAMPLE_URL + 'images/heart30.png',
+        size: new BMap.Size(30, 26),
+        opt_anchor: [16, 0],
+        textColor: '#ff00ff',
+        opt_textSize: 10
+    }, {
+        url: EXAMPLE_URL + 'images/heart40.png',
+        size: new BMap.Size(40, 35),
+        opt_anchor: [40, 35],
+        textColor: '#ff0000',
+        opt_textSize: 12
+    }, {
+        url: EXAMPLE_URL + 'images/heart50.png',
+        size: new BMap.Size(50, 44),
+        opt_anchor: [32, 0],
+        textColor: 'white',
+        opt_textSize: 14
+    }];
+
+    BMapLib.TextIconOverlay.prototype.getStyleByText = function (text, styles) {
+        var count = parseInt(text);
+        var index = parseInt(count / 20);
+        index = Math.max(0, index);
+        index = Math.min(index, styles.length - 1);
+        return styles[index];
+    };
+
+    map.addOverlay(new BMapLib.TextIconOverlay(point, 7));
+
+    map.addOverlay(new BMapLib.TextIconOverlay(new BMap.Point(116.404, 39.885), 15, { styles: myStyles }));
+
+    map.addOverlay(new BMapLib.TextIconOverlay(new BMap.Point(116.354, 39.915), 24, { styles: myStyles }));
+
+    map.addOverlay(new BMapLib.TextIconOverlay(new BMap.Point(116.454, 39.915), 35, { styles: myStyles }));
+
+    map.addOverlay(new BMapLib.TextIconOverlay(new BMap.Point(116.404, 39.945), 42, { styles: myStyles }));
+
+
+    
+</script>
+	
+</html>
+

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>TextIconOverlay简单示例</title>
+     <style type="text/css">
+     #mapContainer
+        {
+            width: 800px;
+            height: 400px;
+            border: 1px solid gray;
+        }
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+    <script type="text/javascript" src="../../src/TextIconOverlay/TextIconOverlay.min.js"></script>
+
+</head>
+<body>
+    <div id="mapContainer"></div>
+    <input id="btnText"	type="button" value="改变Text"  />
+    <input id="btnPoint" type="button" value="改变Position"  />
+</body>
+    <script type="text/javascript" >
+        var map = new BMap.Map("mapContainer");
+        map.enableScrollWheelZoom();
+        var point = new BMap.Point(116.404, 39.915);
+        map.centerAndZoom(point, 13);
+
+        var marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+
+        var rm = new BMapLib.TextIconOverlay(point, 7);
+
+        map.addOverlay(rm);
+        map.addOverlay(new BMapLib.TextIconOverlay(new BMap.Point(116.404, 39.885), 15));
+        map.addOverlay(new BMapLib.TextIconOverlay(new BMap.Point(116.354, 39.915), 24));
+        map.addOverlay(new BMapLib.TextIconOverlay(new BMap.Point(116.454, 39.915), 48));
+        map.addOverlay(new BMapLib.TextIconOverlay(new BMap.Point(116.404, 39.945), 99));
+
+        rm.addEventListener("click", function (e) {
+            // console.log(e);
+        });
+        rm.addEventListener("mouseover", function (e) {
+            // console.log(e);
+        });
+        rm.addEventListener("mouseout", function (e) {
+            // console.log(e);
+        });
+
+        var btnOpen = document.getElementById('btnText');
+        btnOpen.onclick = function (event) {
+            rm.setText(35);
+        };
+
+        var newPt = new BMap.Point(116.404, 39.895);
+        var btnClose = document.getElementById('btnPoint');
+        btnClose.onclick = function () {
+            rm.setPosition(newPt);
+            marker.setPosition(newPt);
+        };
+    </script>
+</html>

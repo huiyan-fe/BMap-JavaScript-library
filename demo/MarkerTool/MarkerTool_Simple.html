@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加点标注工具--简单示例</title>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+<script type="text/javascript" src="../../src/MarkerTool/MarkerTool.min.js"></script>
+</head>
+<body>
+<div style="width:520px;height:340px;border:1px solid gray" id="container"></div>
+<input type="button" value="打开" onclick="mkrTool.open()" />
+<input type="button" value="关闭" onclick="mkrTool.close()" />
+</body>
+</html>
+<script type="text/javascript">
+var map = new BMap.Map("container");
+map.centerAndZoom(new BMap.Point(116.404, 39.915), 12);
+map.enableScrollWheelZoom();
+
+var mkrTool = new BMapLib.MarkerTool(map, {autoClose: false, followText: "连续添加标注"});
+</script>
