@@ -120,6 +120,16 @@ var BMapLib = window.BMapLib = BMapLib || {};
         // 设置新的中心点
        var center = new BMap.Point(boundary.w + (boundary.e - boundary.w) / 2,
                                                          boundary.s + (boundary.n - boundary.s) / 2);
+       if (this.tempCenter
+        && this.tempCenter.lng === center.lng
+        && this.tempCenter.lat === center.lat) {
+          return;
+       } else {
+          this.tempCenter = {};
+          this.tempCenter.lng = center.lng;
+          this.tempCenter.lat = center.lat;
+       }
+       
        setTimeout(function() {
             _map.panTo(center, {noAnimation : "no"});
         }, 1);
