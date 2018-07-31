@@ -267,6 +267,7 @@ var INFOBOX_AT_TOP = 1, INFOBOX_AT_RIGHT = 2, INFOBOX_AT_BOTTOM = 3, INFOBOX_AT_
         this._opts.closeIconUrl = opts.closeIconUrl || "close.png";
         this._opts.enableAutoPan = opts.enableAutoPan  ? true : false;
         this._opts.align = opts.align || INFOBOX_AT_TOP;
+        this._opts.disableClose = (opts.disableClose === true);
     }
     InfoBox.prototype = new BMap.Overlay();
     InfoBox.prototype.initialize = function(map) {
@@ -484,6 +485,9 @@ var INFOBOX_AT_TOP = 1, INFOBOX_AT_RIGHT = 2, INFOBOX_AT_BOTTOM = 3, INFOBOX_AT_
          * @return IMG 关闭按钮的HTML代码
          */
         _getCloseIcon: function(){
+            if (this._opts.disableClose) {
+                return '<div></div>';
+            }
             var img = "<img src='"+ this._opts.closeIconUrl +"' align='right' style='position:absolute;right:0px;cursor:pointer;margin:"+ this._opts.closeIconMargin +"'/>";
             return img;
         },
@@ -537,9 +541,9 @@ var INFOBOX_AT_TOP = 1, INFOBOX_AT_RIGHT = 2, INFOBOX_AT_BOTTOM = 3, INFOBOX_AT_
             }
 
             if(this._marker){
-                this._div.style.left = pixel.x - icon.anchor.width + this._marker.getOffset().width + icon.infoWindowAnchor.width - this._boxWidth / 2 + "px";
+                this._div.style.left = pixel.x - icon.anchor.width + this._marker.getOffset().width + icon.infoWindowAnchor.width - this._boxWidth / 2 + this._opts.offset.width + "px";
             }else{
-                this._div.style.left = pixel.x - this._boxWidth / 2 + "px";
+                this._div.style.left = pixel.x - this._boxWidth / 2 + this._opts.offset.width+ "px";
             }
         },
         /**
