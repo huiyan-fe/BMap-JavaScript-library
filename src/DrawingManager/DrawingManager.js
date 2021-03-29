@@ -1551,7 +1551,8 @@ var BMAP_DRAWING_MARKER    = "marker",     // 鼠标画点模式
             map = this._map,
             mask = this._mask,
             polygon = null,
-            startPoint = null;
+            startPoint = null,
+            lastPoint = null; // 绘制过程中，鼠标拖动到地图之外，endAction会丢失坐标，需要移动时记录下来。
 
         // 获取4个顶点和4条边中点的坐标
         function getRectAllPoints(pointA, pointB) {
@@ -1630,7 +1631,7 @@ var BMAP_DRAWING_MARKER    = "marker",     // 鼠标画点模式
             mask.hide();
             var endPoint = null;
             var markers = [];
-            var points = getRectAllPoints(startPoint, e.point);
+            var points = getRectAllPoints(startPoint, e.point || lastPoint);
             var pointsTmp = copy(points);
             var cz = map.getViewport(points);
             cz.zoom -= 1;
@@ -1745,6 +1746,7 @@ var BMAP_DRAWING_MARKER    = "marker",     // 鼠标画点模式
         var mousemoveAction = function (e) {
             baidu.preventDefault(e);
             baidu.stopBubble(e);
+            lastPoint = e.point;
 
             map.removeOverlay(tip_label);
 
