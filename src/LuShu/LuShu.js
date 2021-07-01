@@ -244,11 +244,13 @@ var BMapLib = window.BMapLib = BMapLib || {};
             //没按pause再按start不做处理
             if (!me._fromPause) {
                 return;
-            }else if(!me._fromStop){
-	            //按了pause按钮,并且再按start，直接移动到下一点
+            }else if(!me._fromStop) {
+                //按了pause按钮,并且再按start，从原位置开始继续移动
 	            //并且此过程中，没有按stop按钮
 	            //防止先stop，再pause，然后连续不停的start的异常
-	            me._moveNext(++me.i);
+	            var current = me._marker.getPosition();
+                var next = me._path[me.i + 1];
+                me._move(current, next, me._tween.linear);
             }
         }else {
             //第一次点击开始，或者点了stop之后点开始
