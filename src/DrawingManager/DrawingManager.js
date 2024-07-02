@@ -933,7 +933,7 @@ var BMAP_DRAWING_MARKER    = "marker",     // 鼠标画点模式
         }
 
         // 是否开启超限提示
-        if (opts.enbaleLimit === true) {
+        if (opts.enableLimit === true) {
             var limit = opts.limitOptions;
             this.limit = limit;
         }
