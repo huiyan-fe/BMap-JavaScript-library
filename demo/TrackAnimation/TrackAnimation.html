@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>轨迹播放</title>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=您的密钥"></script>
+    <script type="text/javascript" src="../../src/TrackAnimation/TrackAnimation.js"></script>
+    <style>
+        body { font-family: Arial, "Microsoft YaHei"; }
+        #container { width: 680px; height: 420px; border: 1px solid #cfcfcf; }
+        .bar { margin-top: 10px; }
+        .bar button { margin-right: 8px; }
+        .bar input { width: 70px; }
+        .hint { color: #666; font-size: 12px; margin-left: 6px; }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <div class="bar">
+        <button onclick="ta.start()">开始</button>
+        <button onclick="ta.pause()">暂停</button>
+        <button onclick="ta.continue()">继续</button>
+        <button onclick="ta.cancel()">取消</button>
+        <span style="margin-left: 10px;">速度：</span>
+        <button onclick="setSpeed(0.5)">0.5x</button>
+        <button onclick="setSpeed(1)">1x</button>
+        <button onclick="setSpeed(2)">2x</button>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+var map = new BMap.Map("container");
+map.centerAndZoom(new BMap.Point(116.404, 39.915), 12);
+map.enableScrollWheelZoom();
+
+// 示例路径（北京附近折线）
+var path = [
+    new BMap.Point(116.404, 39.915),
+    new BMap.Point(116.414, 39.920),
+    new BMap.Point(116.424, 39.912),
+    new BMap.Point(116.436, 39.905),
+    new BMap.Point(116.450, 39.910)
+];
+
+var polyline = new BMap.Polyline(path, {strokeColor: "#1a73e8", strokeWeight: 4, strokeOpacity: 0.9});
+map.addOverlay(polyline);
+map.setViewport(path);
+
+var ta = new BMapLib.TrackAnimation(map, polyline, {
+    duration: 8000,               // 动画总时长（ms）：轨迹从起点“画到终点”耗时
+    delay: 0,                     // 延迟开始（ms）
+    followView: true,             // 播放中是否跟随当前轨迹点移动视口
+    followViewSmoothing: 1,       // 跟随平滑系数（0~1）
+    followViewEdgePadding: 0.3,   // 触发跟随的留白比例（0~1）
+    overallView: true,            // 播放结束后是否 setViewport 展示整条轨迹（播放中不做总览）
+    onAnimateEnd: function() {
+        console.log("end");
+    }
+});
+
+function setSpeed(x) {
+    ta.setSpeed(x);
+}
+</script>
+

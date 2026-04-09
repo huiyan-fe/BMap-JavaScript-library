@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Swipe</title>
+        <!-- 引入样式配置文件 -->
+        <script src="https://mapv.baidu.com/gl/examples/static/common.js"></script>
+        <link rel="stylesheet" href="../../src/Swipe/Swipe.css" />
+        <script src="https://api.map.baidu.com/api?v=3.0&ak=您的密钥"></script>
+        <script src="../../src/Swipe/Swipe.js"></script>
+        <style>
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            #wrapper {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+
+            /* 两张地图必须叠放在同一容器内 */
+            #map,
+            #map2 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <div id="map"></div>
+            <div id="map2"></div>
+        </div>
+        <script>
+            var map = new BMap.Map('map', {
+                enableIconClick: true,
+                preserveDrawingBuffer: true,
+                maxZoom: 20,
+            });
+            map.enableScrollWheelZoom(true);
+            map.centerAndZoom(new BMap.Point(116.404844, 39.921354), 11);
+
+            var map2 = new BMap.Map('map2', {
+                enableIconClick: true,
+                preserveDrawingBuffer: true,
+                maxZoom: 20,
+            });
+            map2.enableScrollWheelZoom(true);
+            map2.centerAndZoom(new BMap.Point(116.404844, 39.921354), 11);
+            map2.setMapStyleV2({
+                styleJson: darkStyle
+            });
+
+            new BMapLib.Swipe(map, map2, document.getElementById('wrapper'));
+        </script>
+    </body>
+</html>
+
