@@ -283,9 +283,9 @@
 <td width = '600'>
 　　Swipe 用于叠加两张地图并通过拖拽中线实现左右卷帘对比。<br/><br/>
 <a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/Swipe/Swipe.html'>卷帘对比示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Swipe/Swipe.js'>源码</a>　　
+<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Swipe/Swipe.js'>源码</a>　
+<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Swipe/Swipe.min.js'>压缩源码</a>　　
 <a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Swipe/Swipe.css'>样式</a>
-
 <a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
 </td>
 </table>
