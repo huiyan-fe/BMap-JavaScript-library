@@ -238,3 +238,54 @@
 <a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
 </td>
 </table>
+
+
+轨迹动画（TrackAnimation）
+---------
+<table>
+<tr>
+<td width='250'>
+<img src='./images/TrackAnimation.png' width='250' />
+</td>
+<td width = '600'>
+　　TrackAnimation类提供视角轨迹动画展示效果。<br/><br/>
+<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/TrackAnimation/TrackAnimation.html'>轨迹动画示例</a><br/>
+<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/TrackAnimation/TrackAnimation.js'>源码</a>　　
+<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/TrackAnimation/TrackAnimation.min.js'>压缩源码</a>　　
+<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
+</td>
+</table>
+
+时间轴（Timeline）
+---------
+<table>
+<tr>
+<td width='250'>
+<img src='./images/Timeline.png' width='250' />
+</td>
+<td width = '600'>
+　　Timeline 提供时间轴控件能力，可播放/暂停，方便结合地图做时序数据展示。<br/><br/>
+<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/Timeline/Timeline.html'>时间轴示例</a><br/>
+<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Timeline/Timeline.js'>源码</a>　　
+<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Timeline/Timeline.min.js'>压缩源码</a>　　
+<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Timeline/Timeline.css'>样式</a>　　
+<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
+</td>
+</table>
+
+卷帘对比（Swipe）
+---------
+<table>
+<tr>
+<td width='250'>
+<img src='./images/Swipe.png' width='250' />
+</td>
+<td width = '600'>
+　　Swipe 用于叠加两张地图并通过拖拽中线实现左右卷帘对比。<br/><br/>
+<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/Swipe/Swipe.html'>卷帘对比示例</a><br/>
+<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Swipe/Swipe.js'>源码</a>　　
+<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Swipe/Swipe.css'>样式</a>
+
+<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
+</td>
+</table>
