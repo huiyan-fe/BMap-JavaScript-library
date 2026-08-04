@@ -324,9 +324,14 @@ var BMapLib = window.BMapLib = BMapLib || {};
         if(polygon instanceof BMap.Polygon){
             pts = polygon.getPath();
         }else{
-            pts = polygon;    
+            pts = polygon;
         }
-        
+
+        // 4.0的getPath()返回闭合路径（首尾点重复），需去除末尾重复点
+        if(pts.length > 3 && pts[0].equals(pts[pts.length - 1])){
+            pts = pts.slice(0, pts.length - 1);
+        }
+
         if(pts.length < 3){//小于3个顶点，不能构建面
             return 0;
         }

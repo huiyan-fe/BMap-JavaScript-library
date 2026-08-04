@@ -1335,10 +1335,18 @@ var BMapLib = window.BMapLib = BMapLib || {};
      * @return 无返回值
      */
     DistanceTool.prototype._addSecPoint = function(pt){
-        var ico = 
-            this._opts.secIcon ? 
-                this._opts.secIcon :
-                new BMap.Icon("http://api.map.baidu.com/images/mapctrls.png", new BMap.Size(11, 11), {imageOffset: new BMap.Size(-26, -313)});
+        var ico;
+        if (this._opts.secIcon) {
+            ico = this._opts.secIcon;
+        } else if (BMap.apiVersion === '4.0') {
+            ico = new BMap.Icon("//mapopen.bj.bcebos.com/cms/images/mapctrls.png",
+                new BMap.Size(12, 12), {
+                    imageSize: new BMap.Size(37, 442),
+                    imageOffset: new BMap.Size(25, 312)
+                });
+        } else {
+            ico = new BMap.Icon("http://api.map.baidu.com/images/mapctrls.png", new BMap.Size(11, 11), {imageOffset: new BMap.Size(-26, -313)});
+        }
         var secPt = new BMap.Marker(pt, {
             icon : ico, 
             clickable : false, 
@@ -1455,10 +1463,18 @@ var BMapLib = window.BMapLib = BMapLib || {};
         pt.disLabel.setPosition(pt);
         me._formatTitle(2, "", "", pt.disLabel);
         // 添加关闭按钮
-        var bico = 
-            this._opts.closeIcon ? 
-                this._opts.closeIcon :
-                new BMap.Icon("http://api.map.baidu.com/images/mapctrls.gif", new BMap.Size(12, 12), {imageOffset: new BMap.Size(0, -14)});
+        var bico;
+        if (this._opts.closeIcon) {
+            bico = this._opts.closeIcon;
+        } else if (BMap.apiVersion === '4.0') {
+            bico = new BMap.Icon("//mapopen.bj.bcebos.com/cms/images/mapctrls.gif",
+                new BMap.Size(12, 12), {
+                    imageSize: new BMap.Size(82, 174),
+                    imageOffset: new BMap.Size(0, 14)
+                });
+        } else {
+            bico = new BMap.Icon("http://api.map.baidu.com/images/mapctrls.gif", new BMap.Size(12, 12), {imageOffset: new BMap.Size(0, -14)});
+        }
         disObj.closeBtn = new BMap.Marker(disObj.points[disObj.points.length - 1], 
             {icon : bico, 
             offset : new BMap.Size(btnOffset[0], btnOffset[1]), 
