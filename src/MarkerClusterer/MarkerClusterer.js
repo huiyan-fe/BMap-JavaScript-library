@@ -188,7 +188,6 @@ var BMapLib = window.BMapLib = BMapLib || {};
      */
     MarkerClusterer.prototype._createClusters = function(){
         window.aaa = (new Date()).valueOf();
-        console.log('aaa' + aaa);
         var mapBounds = this._map.getBounds();
         var extendedBounds = getExtendedBounds(this._map, mapBounds, this._gridSize);
         for(var i = 0, marker; marker = this._markers[i]; i++){
@@ -507,7 +506,6 @@ var BMapLib = window.BMapLib = BMapLib || {};
      * @return 无返回值
      */
     Cluster.prototype.render = function(){
-        console.log((new Date()).valueOf() - aaa);
         var len = this._markers.length;
          
         if (len < this._minClusterSize) {
@@ -580,13 +578,17 @@ var BMapLib = window.BMapLib = BMapLib || {};
         }
  
         this._clusterMarker.setPosition(this._center);
-         
+
         this._clusterMarker.setText(this._markers.length);
- 
+
         var thatMap = this._map;
-        var thatBounds = this.getBounds();
+        var thatMarkers = this._markers;
         this._clusterMarker.addEventListener("click", function(event){
-            thatMap.setViewport(thatBounds);
+            var points = [];
+            for (var i = 0; i < thatMarkers.length; i++) {
+                points.push(thatMarkers[i].getPosition());
+            }
+            thatMap.setViewport(points);
         });
  
     };

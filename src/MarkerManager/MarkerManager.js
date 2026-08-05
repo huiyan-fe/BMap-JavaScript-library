@@ -141,6 +141,7 @@ var BMapLib = window.BMapLib = BMapLib || {};
          * mgr.getMarkerCount(15);
          */
         MarkerManager.prototype.getMarkerCount = function (zoom) {
+            zoom = Math.floor(zoom);
             var len = this._numMarkers.length,
                 t = this._numMarkers,
                 count = 0;
@@ -219,7 +220,7 @@ var BMapLib = window.BMapLib = BMapLib || {};
     baidu.object.extend(MarkerManager.prototype, {
         _showMarkers: function () {
             var num = this._numMarkers.length,
-                curZoom = this._map.getZoom(),
+                curZoom = Math.floor(this._map.getZoom()),
                 t = this._numMarkers,
                 curBounds = this._getRealBounds();
             for (var i = num; i--;) {

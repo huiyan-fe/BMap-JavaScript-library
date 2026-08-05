@@ -523,17 +523,18 @@ var INFOBOX_AT_TOP = 1, INFOBOX_AT_RIGHT = 2, INFOBOX_AT_BOTTOM = 3, INFOBOX_AT_
         _adjustPosition: function(poi){
             var pixel = this._getPointPosition(poi);
             var icon = this._marker && this._marker.getIcon();
+            var iwAnchor = icon && (icon.infoWindowAnchor || icon.infoWindowOffset || {width: 0, height: 0});
             switch(this._opts.align){
                 case INFOBOX_AT_TOP:
                     if(this._marker){
-                        this._div.style.bottom = -(pixel.y - this._opts.offset.height - icon.anchor.height + icon.infoWindowAnchor.height) - this._marker.getOffset().height + 2 + "px";
+                        this._div.style.bottom = -(pixel.y - this._opts.offset.height - icon.anchor.height + iwAnchor.height) - this._marker.getOffset().height + 2 + "px";
                     }else{
                         this._div.style.bottom = -(pixel.y - this._opts.offset.height) + "px";
                     }
                     break;
                 case INFOBOX_AT_BOTTOM:
                     if(this._marker){
-          		        this._div.style.top = pixel.y + this._opts.offset.height - icon.anchor.height + icon.infoWindowAnchor.height + this._marker.getOffset().height + "px";
+          		        this._div.style.top = pixel.y + this._opts.offset.height - icon.anchor.height + iwAnchor.height + this._marker.getOffset().height + "px";
                     }else{
                         this._div.style.top = pixel.y + this._opts.offset.height + "px";
                     }
@@ -541,7 +542,7 @@ var INFOBOX_AT_TOP = 1, INFOBOX_AT_RIGHT = 2, INFOBOX_AT_BOTTOM = 3, INFOBOX_AT_
             }
 
             if(this._marker){
-                this._div.style.left = pixel.x - icon.anchor.width + this._marker.getOffset().width + icon.infoWindowAnchor.width - this._boxWidth / 2 + this._opts.offset.width + "px";
+                this._div.style.left = pixel.x - icon.anchor.width + this._marker.getOffset().width + iwAnchor.width - this._boxWidth / 2 + this._opts.offset.width + "px";
             }else{
                 this._div.style.left = pixel.x - this._boxWidth / 2 + this._opts.offset.width+ "px";
             }
@@ -620,17 +621,18 @@ var INFOBOX_AT_TOP = 1, INFOBOX_AT_RIGHT = 2, INFOBOX_AT_BOTTOM = 3, INFOBOX_AT_
                 panRight = boxW / 2 + anchorPos.x - mapW;
             if(this._marker){
                 var icon = this._marker.getIcon();
+                var iwAnchor = icon && (icon.infoWindowAnchor || icon.infoWindowOffset || {width: 0, height: 0});
             }
             //基于bottom定位，也就是infoBox在上方的情况
             switch(this._opts.align){
                 case INFOBOX_AT_TOP:
                     //上侧超出
-                    var h = this._marker ? icon.anchor.height + this._marker.getOffset().height - icon.infoWindowAnchor.height : 0;
+                    var h = this._marker ? icon.anchor.height + this._marker.getOffset().height - iwAnchor.height : 0;
                     panTop = boxH - anchorPos.y + this._opts.offset.height + h + 2 ;
                     break;
                 case INFOBOX_AT_BOTTOM:
                     //下侧超出
-                    var h = this._marker ? -icon.anchor.height + icon.infoWindowAnchor.height + this._marker.getOffset().height + this._opts.offset.height : 0;
+                    var h = this._marker ? -icon.anchor.height + iwAnchor.height + this._marker.getOffset().height + this._opts.offset.height : 0;
                     panBottom = boxH + anchorPos.y - mapH + h + 4;
                     break;
             }
