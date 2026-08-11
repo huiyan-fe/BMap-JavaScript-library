@@ -16,6 +16,15 @@
 var BMapLib = window.BMapLib = BMapLib || {};
 
 (function() {
+  // 自动检测当前脚本所在目录，用于拼接资源路径
+  var _scriptPath = (function() {
+    var scripts = document.getElementsByTagName('script');
+    var src = document.currentScript
+      ? document.currentScript.src
+      : scripts[scripts.length - 1].src;
+    return src.substring(0, src.lastIndexOf('/') + 1);
+  })();
+  var BINDEDITING_ICON = _scriptPath + 'circle.png';
   /**
    * CurveLine类的构造函数
    * @class 弧线类，实现效果的<b>入口</b>。
@@ -58,7 +67,7 @@ var BMapLib = window.BMapLib = BMapLib || {};
         self.disableEditing();
         for (var i = 0; i < self.cornerPoints.length; i++) {
           var marker = new BMap.Marker(self.cornerPoints[i], {
-            icon: new BMap.Icon('http://api.map.baidu.com/library/CurveLine/1.5/src/circle.png', new BMap.Size(16,16)),
+            icon: new BMap.Icon(BINDEDITING_ICON, new BMap.Size(16,16)),
             enableDragging: true,
             raiseOnDrag: true
           });

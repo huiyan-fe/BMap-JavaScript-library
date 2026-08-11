@@ -17,7 +17,16 @@ if(typeof BMapLib._toolInUse == "undefined"){
     BMapLib._toolInUse = false; //该工具是否在使用，避免多个鼠标工具一起使用的情况
                                 //如：用户打开了添加标注工具，就不能再打开测距工具。
 }
-(function() {    
+(function() {
+    // 自动检测当前脚本所在目录，用于拼接资源路径
+    var _scriptPath = (function() {
+        var scripts = document.getElementsByTagName('script');
+        var src = document.currentScript
+            ? document.currentScript.src
+            : scripts[scripts.length - 1].src;
+        return src.substring(0, src.lastIndexOf('/') + 1);
+    })();
+
     /**
      * baidu tangram 代码部分，tangram代码提供了一些基础的操作，如：类的继承、
      * 事件的派发、事件的绑定等，而且兼容各种浏览器，在tangram基础上构建MarkerTool
@@ -458,35 +467,50 @@ if(typeof BMapLib._toolInUse == "undefined"){
     };    
     
     MarkerTool.CUR_IMG = "http://api.map.baidu.com/library/MarkerTool/1.2/src/images/transparent.cur"; //鼠标透明样式，发布时候修改为绝对路径
-    MarkerTool.ICON_IMG = "http://api.map.baidu.com/library/MarkerTool/1.2/src/images/us_mk_icon.png"; //图标样式，发布时候修改为绝对路径
-    MarkerTool.SYS_ICONS = [//MarkerTool 提供的系统样式，便于用户选择使用
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(21, 21), {anchor: new BMap.Size(6, 21), imageOffset: new BMap.Size(0, 0)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(21, 21), {anchor: new BMap.Size(6, 21), imageOffset: new BMap.Size(-23, 0)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(21, 21), {anchor: new BMap.Size(6, 21), imageOffset: new BMap.Size(-46, 0)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(21, 21), {anchor: new BMap.Size(6, 21), imageOffset: new BMap.Size(-69, 0)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(21, 21), {anchor: new BMap.Size(6, 21), imageOffset: new BMap.Size(-92, 0)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(21, 21), {anchor: new BMap.Size(6, 21), imageOffset: new BMap.Size(-115, 0)}),
-        
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(23, 25), {anchor: new BMap.Size(9, 25), imageOffset: new BMap.Size(0, -21)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(23, 25), {anchor: new BMap.Size(9, 25), imageOffset: new BMap.Size(-23, -21)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(23, 25), {anchor: new BMap.Size(9, 25), imageOffset: new BMap.Size(-46, -21)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(23, 25), {anchor: new BMap.Size(9, 25), imageOffset: new BMap.Size(-69, -21)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(23, 25), {anchor: new BMap.Size(9, 25), imageOffset: new BMap.Size(-92, -21)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(23, 25), {anchor: new BMap.Size(9, 25), imageOffset: new BMap.Size(-115, -21)}),
-        
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(21, 21), {anchor: new BMap.Size(1, 21), imageOffset: new BMap.Size(0, -46)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(21, 21), {anchor: new BMap.Size(1, 21), imageOffset: new BMap.Size(-23, -46)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(21, 21), {anchor: new BMap.Size(1, 21), imageOffset: new BMap.Size(-46, -46)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(21, 21), {anchor: new BMap.Size(1, 21), imageOffset: new BMap.Size(-69, -46)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(21, 21), {anchor: new BMap.Size(1, 21), imageOffset: new BMap.Size(-92, -46)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(21, 21), {anchor: new BMap.Size(1, 21), imageOffset: new BMap.Size(-115, -46)}),
+    MarkerTool.ICON_IMG = _scriptPath + "us_mk_icon.png"; //图标样式，自动匹配脚本所在路径
 
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(25, 25), {anchor: new BMap.Size(12, 25), imageOffset: new BMap.Size(0, -67)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(25, 25), {anchor: new BMap.Size(12, 25), imageOffset: new BMap.Size(-25, -67)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(24, 25), {anchor: new BMap.Size(12, 25), imageOffset: new BMap.Size(-50, -67)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(25, 25), {anchor: new BMap.Size(12, 25), imageOffset: new BMap.Size(-75, -67)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(25, 25), {anchor: new BMap.Size(12, 25), imageOffset: new BMap.Size(-100, -67)}),
-        new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(19, 25), {anchor: new BMap.Size(9, 25), imageOffset: new BMap.Size(-125, -67)})
+    // 4.0 WebGL需要imageSize（精灵图完整尺寸）和正数imageOffset来正确计算纹理坐标
+    var _isV4 = (BMap.apiVersion === '4.0');
+    var _sysIconImageSize = _isV4 ? new BMap.Size(144, 92) : null;
+    function _createSysIcon(width, height, anchorX, anchorY, offsetX, offsetY) {
+        var opts = {
+            anchor: new BMap.Size(anchorX, anchorY),
+            imageOffset: _isV4 ? new BMap.Size(-offsetX, -offsetY) : new BMap.Size(offsetX, offsetY)
+        };
+        if (_sysIconImageSize) {
+            opts.imageSize = _sysIconImageSize;
+        }
+        return new BMap.Icon(MarkerTool.ICON_IMG, new BMap.Size(width, height), opts);
+    }
+
+    MarkerTool.SYS_ICONS = [//MarkerTool 提供的系统样式，便于用户选择使用
+        _createSysIcon(21, 21, 6, 21, 0, 0),
+        _createSysIcon(21, 21, 6, 21, -23, 0),
+        _createSysIcon(21, 21, 6, 21, -46, 0),
+        _createSysIcon(21, 21, 6, 21, -69, 0),
+        _createSysIcon(21, 21, 6, 21, -92, 0),
+        _createSysIcon(21, 21, 6, 21, -115, 0),
+
+        _createSysIcon(23, 25, 9, 25, 0, -21),
+        _createSysIcon(23, 25, 9, 25, -23, -21),
+        _createSysIcon(23, 25, 9, 25, -46, -21),
+        _createSysIcon(23, 25, 9, 25, -69, -21),
+        _createSysIcon(23, 25, 9, 25, -92, -21),
+        _createSysIcon(23, 25, 9, 25, -115, -21),
+
+        _createSysIcon(21, 21, 1, 21, 0, -46),
+        _createSysIcon(21, 21, 1, 21, -23, -46),
+        _createSysIcon(21, 21, 1, 21, -46, -46),
+        _createSysIcon(21, 21, 1, 21, -69, -46),
+        _createSysIcon(21, 21, 1, 21, -92, -46),
+        _createSysIcon(21, 21, 1, 21, -115, -46),
+
+        _createSysIcon(25, 25, 12, 25, 0, -67),
+        _createSysIcon(25, 25, 12, 25, -25, -67),
+        _createSysIcon(24, 25, 12, 25, -50, -67),
+        _createSysIcon(25, 25, 12, 25, -75, -67),
+        _createSysIcon(25, 25, 12, 25, -100, -67),
+        _createSysIcon(19, 25, 9, 25, -125, -67)
     ];
    
 })();//闭包结束
