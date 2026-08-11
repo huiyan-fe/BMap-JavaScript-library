@@ -1,0 +1,172 @@
+.BMapLib_schbox{
+    font-family:微软雅黑;
+    width:100%;
+    background-color: #f4f4f4;
+    position:relative;
+}
+.BMapLib_schbox input[type=search]{ outline:none;font-size:14px;-webkit-appearance:none;}
+.BMapLib_schbox input[type=search]::-webkit-search-decoration,
+.BMapLib_schbox input[type=search]::-webkit-search-cancel-button,
+.BMapLib_schbox input[type=search]::-webkit-search-results-button,
+.BMapLib_schbox input[type=search]::-webkit-search-results-decoration {
+    display: none;
+}
+
+
+.BMapLib_sc_t{
+    padding: 6px 8px;
+    border-bottom: 1px solid #cecece;
+}
+/* 新版普通检索栏 */
+.BMapLib_cityTab {
+    height: 36px;
+    display: -webkit-box;
+    width: 68px;
+    padding-left: 6px;
+    -webkit-box-align: center;
+    z-index: 10000;
+}
+.BMapLib_cityTab span {
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    white-space: nowrap;
+    background-color: #efefef;
+    max-width: 45px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    color: #343434;
+    -webkit-border-radius: 3px;
+    padding: 0 20px 0 5px;
+    position: relative;
+}
+.BMapLib_cityTab span:after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 4px;
+    top: 9px;
+    right: 8px;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAHCAYAAADTcMcaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjAzQUMwREYyQ0E0RDExRTE4OENBQ0E5N0Y3NkUyOTM1IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjAzQUMwREYzQ0E0RDExRTE4OENBQ0E5N0Y3NkUyOTM1Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDNBQzBERjBDQTREMTFFMTg4Q0FDQTk3Rjc2RTI5MzUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDNBQzBERjFDQTREMTFFMTg4Q0FDQTk3Rjc2RTI5MzUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7nllBJAAAAPUlEQVR42mKcNWvWfwYSAVNqaiojKRpA6plgDGI1gG1CFyCkAUUTPo3o4kyEFGA16P///1gxKFRxyQEEGADGHjVi7d7iOgAAAABJRU5ErkJggg==") no-repeat;
+    background-size: 7px 4px;
+}
+.BMapLib_sc_t_b1{
+    width: 23px;
+    height: 23px;
+    background: url("http://api.map.baidu.com/images/fdj.png") no-repeat;
+    background-size: 23px 23px;
+    margin: 22px auto 0;
+}
+
+#BMapLib_sc0 table{
+    border: 1px solid #9a9a9a;
+    background: #fff;
+}
+.BMapLib_sc_t .BMapLib_seBox{
+    height: 36px;
+    background-color: #ffffff;
+    position: relative;
+}
+.BMapLib_sc_t .BMapLib_xx{
+     position:absolute;
+     display:none;
+    right:0.286em;
+    top:50%;
+    margin-top:-17px;
+    width:34px;
+    height:34px;
+    background:url(http://api.map.baidu.com/images/delete.png) no-repeat center center;
+    background-size:20px 20px;
+    z-index: 100000;
+}
+.BMapLib_sc_t input{
+    width:100%;
+    height:100%;
+    padding: 0 5px 0 5px;
+    color:#333333;
+    border:none;
+    background:none;
+}
+.BMapLib_sc_t .BMapLib_ipt_icon{
+    height: 8px;
+    width: 8px;
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    -webkit-border-radius: 4px;
+}
+.BMapLib_sc_t input.geo{
+    color:#4C78CE;
+}
+
+#BMapLib_sc0 .BMapLib_sc_t_b{
+    height: 36px;
+    width: 74px;
+    border-left: 1px solid #9a9a9a;
+    background-image: -webkit-gradient(linear,0% 0%, 0% 100%, from(#F7F6F6), to(#DFDFDF), color-stop(0.5,#eeeeee));
+    font-size: 15px;
+    text-align:center;
+    line-height: 36px;
+    color: #000000;
+    font-weight: bold;
+}
+#BMapLib_sc1 .BMapLib_sc_t_b, #sc_pos .BMapLib_sc_t_b{
+    width: 35px;
+    height: 70px;
+    border: 1px solid #9a9a9a;
+    background-image: -webkit-gradient(linear,0% 0%, 0% 100%, from(#F7F6F6), to(#DFDFDF), color-stop(0.5,#eeeeee));
+    margin-left: 5px;
+}
+.BMapLib_sc_t_sw{
+    width: 33px;
+    height: 32px;
+    border: 1px solid #9a9a9a;
+    -webkit-border-radius: 2px;
+    margin:-16px 7px 0 0;
+    background-image: -webkit-gradient(linear,0% 0%, 0% 100%, from(#F6F6F6), to(#dfdfdf), color-stop(0.5,#EEEEEE));
+}
+.BMapLib_sc_t_sw1{
+    width: 17px;
+    height: 26px;
+    overflow: hidden;
+    background: url("http://api.map.baidu.com/images/sctab.png") no-repeat;
+    background-size: 17px 26px;
+    margin: 3px auto 0;
+}
+.BMapLib_dbseBox {
+    height: 31px;
+    padding-left: 26px;
+    position: relative;
+    -webkit-box-shadow: inset 1px 1px 2px #dddddd;
+    background: #fff;
+    border: 1px solid #9a9a9a;
+    width: auto;
+    left: 0;
+    right: 0;
+}
+#BMapLib_sc1 input{
+    height:2.071em;
+}
+
+/*搜索框控件相关样式*/
+.BMapLib_sc_t .BMapLib_txtSta{
+    background-color: #3ac310;
+}
+.BMapLib_sc_t .BMapLib_txtEnd{
+    background-color: #ec0000;
+}
+#BMapLib_tipBox{
+    position:absolute;
+    width:100%;
+    height:25px;
+    text-align:center;
+    bottom:-25px;
+    left:0px;
+    line-height:25px;
+    background:#FAFAFA;
+    opacity:0.8;
+    z-index:9999;
+    font-size:14px;
+    display:none;
+}
