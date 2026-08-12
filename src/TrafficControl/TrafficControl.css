@@ -1,0 +1,41 @@
+.maplibTc{font-size:12px;width:243px;border:1px solid #8BA4D8;padding:3px 2px 0px 5px;background:#fff;position:absolute;z-index:10;}
+    .maplibTc a{text-decoration:none;}
+    .maplibTcColor{background:url("http://api.map.baidu.com/images/tools_menu.gif") no-repeat scroll 138px -85px transparent;font-weight:bold;*background-position:128px -85px;}
+    .maplibTcUpdate{float:left;width:13px;height:14px;background:url(http://api.map.baidu.com/images/tools_menu.gif) no-repeat -12px -18px;margin-left:5px;cursor:pointer}
+    .maplibTcView{float:right;color:#00f;text-decoration:none;line-height:15px;*line-height:18px}
+    .maplibTcCurTime{float:left;color:#666}
+    .maplibTcTime{height:20px;padding:5px 3px 0 0;}
+    .maplibTcWeekDay{height:22px;color:#6688CA;padding:3px 0;}
+    .maplibTcWeekDay a{color:#6688CA;padding:3px 2px;}
+    .maplibTcWeekDay ul{float:left;margin:0;padding:0;}
+    .maplibTcWeekDay span{float:left;line-height:23px;}
+    .maplibTcWeekDay li{ float:left;padding:0 6px;list-style:none;line-height:23px;}
+    .maplibTcRule{background:url("http://api.map.baidu.com/images/bar.gif") no-repeat scroll 0 10px transparent;width:195px;float:left;margin-left:20px;*margin-left:10px;}
+    .maplibTcRuleTxt{float:left;line-height:44px;}
+    .maplibTcClear{clear:both;}
+    .maplibTcTimeBox{color: #6688CA; margin-left: 137.5px; font-size: 11px; overflow: hidden;}
+    .maplibTcTimeline{height:34px;}
+    .maplibTcTimelinePrev{overflow:hidden;width:9px;height:9px;cursor:pointer;float:left;margin-top:3px}
+    .maplibTcTimelineNext{overflow:hidden;width:11px;*width:10px;height:9px;cursor:pointer;float:right;margin-top:3px}
+    .maplibTcTimeMove{width: 9px; height: 18px; background: url("http://api.map.baidu.com/images/tools_menu.gif") no-repeat scroll 0pt -32px transparent; float: left; cursor: pointer; margin-left: 137.5px; margin-top: 0px;}
+    .maplibTcHide{display:none;}
+    .maplibTcBtn_deskTop{background: url(http://api.map.baidu.com/images/bgs.gif) no-repeat scroll 0px -271px transparent; cursor: pointer; height: 22px;  width: 73px; z-index: 10; position: absolute;}
+    .maplibTcBtn_mobile{background: url(http://api.map.baidu.com/images/traffic_bgs.png) rgba(255,255,255,0.8) no-repeat scroll -30px 0px;border:1px solid #AFAFAF; background-size:60px 30px; cursor: pointer; height: 30px;  width: 30px; z-index: 10; position: absolute;}
+    .maplibTcBtn_deskTop{background-position:0px -249px  }
+    .maplibTcBtnOff_mobile{background-position:0px 0px;}
+    .maplibTcColon{float:left;}
+    .maplibTcOn{background:#E6EFF8;}
+    .maplibTcClose{background: url("http://api.map.baidu.com/images/popup_close.gif") no-repeat scroll 0 0 transparent;border: 0 none;cursor:pointer;height: 12px;position: absolute;right: 4px;top: 5px;width: 12px;}
+
+    /*s--------------交通流量-----------------*/
+    .maplibTfctr{ min-width:9em; height:2.2em; display: -webkit-box; -webkit-box-align: center; -webkit-border-radius:0.3em; border:.1em solid #989898; -webkit-box-sizing:border-box; background-color: #fff; font-size:14px;}
+    .maplibTfctrHide{display:none;}
+    .maplibTfctr_c{-webkit-box-flex:1;}
+    .maplibTfctr_status{width:4em;margin-right: .45em;}
+    .maplibTfctr_status span {display:inline-block;margin-left:.3em;font-size:14px;}
+    .maplibTfctr div,.maplibTfctr span{-webkit-box-sizing:border-box;}
+    .maplibTfctr_l{margin:0 .15em;}
+    .maplibY{background:#ffae00;}
+    .maplibR{background:#ff0000;}
+    .maplibG{background:#1fba00;}
+    /*e--------------交通流量-----------------*/
