@@ -210,7 +210,7 @@ var BMapLib = window.BMapLib = BMapLib || {};
       /**
        * 请求地址
        */
-      COORD_CONVERT_URL: "http://api.map.baidu.com/ag/coord/convert",  
+      COORD_CONVERT_URL: "//api.map.baidu.com/ag/coord/convert",  
       /**
        * 请求函数
        * @param {Function} cbk 回调函数
@@ -276,7 +276,7 @@ var BMapLib = window.BMapLib = BMapLib || {};
     MapWrapper._cbkMount = {};    
 
     // 统计方法
-    window._BMapLibStatImg = "http://api.map.baidu.com/images/";
+    window._BMapLibStatImg = "//api.map.baidu.com/images/";
     window._addStat = function (code, opts) {
         if (!code) {
             return;
