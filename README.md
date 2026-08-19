@@ -1,291 +1,151 @@
-百度地图JavaScript开源库
-============================
-　　百度地图JavaScript开源库是一套基于百度地图API二次开发的开源的代码库。目前提供多个lib库，帮助开发者快速实现在地图上添加Marker、自定义信息窗口、标注相关开发、快速加载城市列表、拉框放大、拉框搜索、区域限制设置、几何运算、实时交通、检索与公交驾车查询、鼠标绘制工具等功能。<br/>
-　　百度地图JavaScript开源库秉着与大家一起学习交流的态度，全部开源。您可以参考开发文档，直接调用现有的开源库，实现您的需求；或者下载每个类的源文件，自行修改再使用。源文件里具有详尽的注释，可以帮助您更好的理解。<br/>
-　　如果您对百度地图JavaScript开源库的意见和建议，请[发送邮件](http://developer.baidu.com/map/index.php?title=open/help_index)。<br/>
-　　此外，欢迎广大的开发爱好者，基于百度地图API，提供你们制作的JavaScript library库。我们也会放在这里供其他爱好者学习、交流。<br/><br/>
-　　
-热力图
----------
-<table>
-<tr>
-<td width='250'>
-<img src='https://raw.githubusercontent.com/huiyan-fe/BMap-JavaScript-library/master/images/Heatmap.png' width='250' />
-</td>
-<td width = '600'>
-　　提供热力图可视化展现功能，注: 支持chrome, safari, IE9及以上的浏览器.核心的代码主要来自于第三方heatmap.js, 主入口类是HeatmapOverlay。<br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/Heatmap/Heatmap.html'>热力图示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Heatmap/Heatmap.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Heatmap/Heatmap.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+# 百度地图 JavaScript 开源库
 
-绘制弧线类
----------
-<table>
-<tr>
-<td width='250'>
-<img src='https://raw.githubusercontent.com/huiyan-fe/BMap-JavaScript-library/master/images/CurveLine.png' width='250' />
-</td>
-<td width = '600'>
-　　提供绘制弧线功能的开源代码库，且用户可通过编辑功能（如开启拖拽起终点、线的宽度与颜色）绘制所需的弧线样式。<br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/CurveLine/CurveLine.html'>弧线绘制示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/CurveLine/CurveLine.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/CurveLine/CurveLine.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+一套基于百度地图 JavaScript API 二次开发的开源组件库，提供覆盖物、地图交互、几何运算和时序可视化等常用能力，帮助开发者快速构建地图应用。
 
-鼠标绘制工具条库
----------
-<table>
-<tr>
-<td width='250'>
-<img src='https://raw.githubusercontent.com/huiyan-fe/BMap-JavaScript-library/master/images/DrawingManager.png' width='250' />
-</td>
-<td width = '600'>
-　　提供鼠标绘制点、线、面、多边形（矩形、圆）的编辑工具条的开源代码库。且用户可使用JavaScript API对应覆盖物（点、线、面等）类接口对其进行属性（如颜色、线宽等）设置、编辑（如开启线顶点编辑等）等功能。<br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/DrawingManager/DrawingManager.html'>鼠标绘制覆盖物示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/DrawingManager/DrawingManager.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/DrawingManager/DrawingManager.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+所有组件均提供源码、压缩版本和在线示例，既可以直接引用，也可以下载源码后按需修改。
 
-自定义信息窗口
----------
-<table>
-<tr>
-<td width='250'>
-<img src='https://raw.githubusercontent.com/huiyan-fe/BMap-JavaScript-library/master/images/InfoBox.png' width='250' />
-</td>
-<td width = '600'>
-　　百度地图的infoBox。类似于infoWindow，比infoWindow更有灵活性，比如可以定制border，关闭按钮样式等。<br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/InfoBox/InfoBox_Top.html'>在顶部打开InfoBox</a>　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/InfoBox/InfoBox_Bottom.html'>在底部打开InfoBox</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/InfoBox/InfoBox.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/InfoBox/InfoBox.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+## 功能一览
 
-标注管理器
----------
-<table>
-<tr>
-<td width='250'>
-<img src='https://raw.githubusercontent.com/huiyan-fe/BMap-JavaScript-library/master/images/MarkerManager.png' width='250' />
-</td>
-<td width = '600'>
-　　百度地图的标注管理器。多marker的管理，更高效、解析更快。<br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/MarkerManager/MarkerManager.html'>标注管理示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/MarkerManager/MarkerManager.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/MarkerManager/MarkerManager.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+| 分类 | 组件 |
+| --- | --- |
+| 可视化 | [热力图](#热力图) · [轨迹动画](#轨迹动画) · [时间轴](#时间轴) · [卷帘对比](#卷帘对比) |
+| 覆盖物 | [绘制弧线](#绘制弧线) · [自定义信息窗口](#自定义信息窗口) · [标注管理器](#标注管理器) · [富标注](#富标注) · [聚合 Marker](#聚合-marker) · [自定义覆盖物](#自定义覆盖物) |
+| 地图工具 | [路书](#路书) · [测距工具](#测距工具) · [添加标注](#添加标注工具) · [拉框放大](#拉框放大工具) · [区域限制](#区域限制) · [几何运算](#几何运算) · [鼠标绘制](#鼠标绘制工具条) |
 
-富标注
----------
-<table>
-<tr>
-<td width='250'>
-<img src='https://raw.githubusercontent.com/huiyan-fe/BMap-JavaScript-library/master/images/RichMarker.png' width='250' />
-</td>
-<td width = '600'>
-　　百度地图的富Marker类，对外开放。 允许用户在自定义丰富的Marker展现，并添加点击、双击、拖拽等事件。<br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/RichMarker/RichMarker.html'>富标注示例</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/RichMarker/RichMarker_Advanced.html'>高级富标注示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/RichMarker/RichMarker.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/RichMarker/RichMarker.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+## 组件
 
-路书
----------
-<table>
-<tr>
-<td width='250'>
-<img src='https://raw.githubusercontent.com/huiyan-fe/BMap-JavaScript-library/master/images/LuShu.png' width='250' />
-</td>
-<td width = '600'>
-　　百度地图的路书。实现marker沿路线运动，并有暂停等功能。<br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/LuShu/LuShu.html'>路书示例</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/LuShu/LuShu_CustomIcon.html'>自定义图标路书示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/LuShu/LuShu.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/LuShu/LuShu.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+### 热力图
 
-测距工具
----------
-<table>
-<tr>
-<td width='250'>
-<img src='https://raw.githubusercontent.com/huiyan-fe/BMap-JavaScript-library/master/images/DistanceTool.png' width='250' />
-</td>
-<td width = '600'>
-　　百度地图的测距工具类，对外开放。 允许用户在地图上点击完成距离的测量。 使用者可以自定义测距线段的相关样式，例如线宽、颜色、测距结果所用的单位制等等。 <br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/DistanceTool/DistanceTool.html'>测距工具示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/DistanceTool/DistanceTool.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/DistanceTool/DistanceTool.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+![热力图预览](images/Heatmap.png)
 
-聚合marker
----------
-<table>
-<tr>
-<td width='250'>
-<img src='https://raw.githubusercontent.com/huiyan-fe/BMap-JavaScript-library/master/images/MarkerClusterer.png' width='250' />
-</td>
-<td width = '600'>
-　　MarkerClusterer标记聚合器用来解决加载大量点要素到地图上产生覆盖现象的问题，并提高性能。 主入口类是MarkerClusterer。<br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/MarkerClusterer/MarkerClusterer.html'>Marker聚合示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/MarkerClusterer/MarkerClusterer.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/MarkerClusterer/MarkerClusterer.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+提供热力图可视化展现功能。支持 Chrome、Safari、IE 9 及以上浏览器，核心代码主要来自第三方 [heatmap.js](https://www.patrick-wied.at/static/heatmapjs/)。
 
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/data-layer/Heatmap.html?version=4.0&type=js) · [源码](src/Heatmap/Heatmap.js) · [压缩源码](src/Heatmap/Heatmap.min.js) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
 
-添加标注工具
----------
-<table>
-<tr>
-<td width='250'>
-<img src='https://raw.githubusercontent.com/huiyan-fe/BMap-JavaScript-library/master/images/MarkerTool.png' width='250' />
-</td>
-<td width = '600'>
-　　百度地图的添加标注工具类，对外开放。 允许用户在地图上点击后添加一个点标注，允许用户设定标注的图标样式。<br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/MarkerTool/MarkerTool_Simple.html'>普通连续添加示例</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/MarkerTool/MarkerTool_Advance.html'>自定义样式示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/MarkerTool/MarkerTool.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/MarkerTool/MarkerTool.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+### 绘制弧线
 
+![绘制弧线预览](images/CurveLine.png)
 
-自定义覆盖物
----------
-<table>
-<tr>
-<td width='250'>
-<img src='https://raw.githubusercontent.com/huiyan-fe/BMap-JavaScript-library/master/images/TextIconOverlay.png' width='250' />
-</td>
-<td width = '600'>
-　　此类表示地图上的一个覆盖物，该覆盖物由文字和图标组成，从Overlay继承。<br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/TextIconOverlay/TextIconOverlay.html'>自定义覆盖物示例1</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/TextIconOverlay/TextIconOverlay_Advanced.html'>自定义覆盖物示例2</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/TextIconOverlay/TextIconOverlay.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/TextIconOverlay/TextIconOverlay.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+提供弧线绘制能力，并支持拖拽起终点、调整线宽和颜色等编辑操作。
 
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/draw-edit/curveLine.html?version=4.0&type=js) · [源码](src/CurveLine/CurveLine.js) · [压缩源码](src/CurveLine/CurveLine.min.js) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
 
-拉框放大工具
----------
-<table>
-<tr>
-<td width='250'>
-<img src='https://raw.githubusercontent.com/huiyan-fe/BMap-JavaScript-library/master/images/RectangleZoom.png' width='250' />
-</td>
-<td width = '600'>
-　　百度地图的拉框缩放类，对外开放。 允许用户在地图上执行拉框放大或者缩小操作， 使用者可以自定义缩放时的动画、遮盖层的样式等效果。<br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/RectangleZoom/RectangleZoom.html'>拉框缩放示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/RectangleZoom/RectangleZoom.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/RectangleZoom/RectangleZoom.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+### 鼠标绘制工具条
 
+![鼠标绘制工具条预览](images/DrawingManager.png)
 
-区域限制
----------
-<table>
-<tr>
-<td width='250'>
-<img src='https://raw.githubusercontent.com/huiyan-fe/BMap-JavaScript-library/master/images/AreaRestriction.png' width='250' />
-</td>
-<td width = '600'>
-　　百度地图浏览区域限制类，对外开放。 允许开发者输入限定浏览的地图区域的Bounds值， 则地图浏览者只能在限定区域内浏览地图。<br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/AreaRestriction/AreaRestriction.html'>区域限制示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/AreaRestriction/AreaRestriction.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/AreaRestriction/AreaRestriction.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+提供点、线、面、多边形、矩形和圆等覆盖物的鼠标绘制与编辑工具。绘制完成后，可以继续使用百度地图 JavaScript API 的覆盖物接口设置样式或开启编辑功能。
 
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/draw-edit/drawingmanager.html?version=4.0&type=js) · [源码](src/DrawingManager/DrawingManager.js) · [压缩源码](src/DrawingManager/DrawingManager.min.js) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
 
-几何运算
----------
-<table>
-<tr>
-<td width='250'>
-<img src='https://raw.githubusercontent.com/huiyan-fe/BMap-JavaScript-library/master/images/GeoUtils.png' width='250' />
-</td>
-<td width = '600'>
-　　GeoUtils类提供若干几何算法，用来帮助用户判断点与矩形、 圆形、多边形线、多边形面的关系,并提供计算折线长度和多边形的面积的公式。 <br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/GeoUtils/GeoUtils.html'>几何运算示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/GeoUtils/GeoUtils.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/GeoUtils/GeoUtils.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+### 自定义信息窗口
 
+![自定义信息窗口预览](images/InfoBox.png)
 
-轨迹动画（TrackAnimation）
----------
-<table>
-<tr>
-<td width='250'>
-<img src='./images/TrackAnimation.png' width='250' />
-</td>
-<td width = '600'>
-　　TrackAnimation类提供视角轨迹动画展示效果。<br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/TrackAnimation/TrackAnimation.html'>轨迹动画示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/TrackAnimation/TrackAnimation.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/TrackAnimation/TrackAnimation.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+类似于 `InfoWindow` 的自定义信息窗口，支持更灵活地定制边框、关闭按钮和窗口位置等样式。
 
-时间轴（Timeline）
----------
-<table>
-<tr>
-<td width='250'>
-<img src='./images/Timeline.png' width='250' />
-</td>
-<td width = '600'>
-　　Timeline 提供时间轴控件能力，可播放/暂停，方便结合地图做时序数据展示。<br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/Timeline/Timeline.html'>时间轴示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Timeline/Timeline.js'>源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Timeline/Timeline.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Timeline/Timeline.css'>样式</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/overlay-info/infobox.html?version=4.0&type=js) · [源码](src/InfoBox/InfoBox.js) · [压缩源码](src/InfoBox/InfoBox.min.js) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
 
-卷帘对比（Swipe）
----------
-<table>
-<tr>
-<td width='250'>
-<img src='./images/Swipe.png' width='250' />
-</td>
-<td width = '600'>
-　　Swipe 用于叠加两张地图并通过拖拽中线实现左右卷帘对比。<br/><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/demo/Swipe/Swipe.html'>卷帘对比示例</a><br/>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Swipe/Swipe.js'>源码</a>　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Swipe/Swipe.min.js'>压缩源码</a>　　
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/src/Swipe/Swipe.css'>样式</a>
-<a target = '_blank' href = 'http://huiyan-fe.github.io/BMap-JavaScript-library/'>类参考</a>
-</td>
-</table>
+### 标注管理器
+
+![标注管理器预览](images/MarkerManager.png)
+
+用于管理大量 Marker，提升多标注场景下的加载效率和解析性能。
+
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/overlay-info/marker-manager.html?version=4.0&type=js) · [源码](src/MarkerManager/MarkerManager.js) · [压缩源码](src/MarkerManager/MarkerManager.min.js) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
+
+### 富标注
+
+![富标注预览](images/RichMarker.png)
+
+支持自定义 Marker 展现形式，并提供点击、双击、拖拽等事件。
+
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/overlay-info/richmarker.html?version=4.0&type=js) · [源码](src/RichMarker/RichMarker.js) · [压缩源码](src/RichMarker/RichMarker.min.js) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
+
+### 路书
+
+![路书预览](images/LuShu.png)
+
+实现 Marker 沿路线运动，并支持暂停等控制能力，也可以使用自定义图标。
+
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/track-animation/lushu.html?version=4.0&type=js) · [源码](src/LuShu/LuShu.js) · [压缩源码](src/LuShu/LuShu.min.js) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
+
+### 测距工具
+
+![测距工具预览](images/DistanceTool.png)
+
+允许用户在地图上点击完成距离测量，并支持自定义测距线样式、线宽、颜色和结果单位。
+
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/draw-edit/distancetool.html?version=4.0&type=js) · [源码](src/DistanceTool/DistanceTool.js) · [压缩源码](src/DistanceTool/DistanceTool.min.js) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
+
+### 聚合 Marker
+
+![聚合 Marker 预览](images/MarkerClusterer.png)
+
+通过聚合大量点要素，减少覆盖现象并提升地图渲染性能。主入口类为 `MarkerClusterer`。
+
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/data-layer/marker-clusterer.html?version=4.0&type=js) · [源码](src/MarkerClusterer/MarkerClusterer.js) · [压缩源码](src/MarkerClusterer/MarkerClusterer.min.js) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
+
+### 添加标注工具
+
+![添加标注工具预览](images/MarkerTool.png)
+
+允许用户在地图上点击添加点标注，并支持自定义标注图标和连续添加。
+
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/draw-edit/markertool.html?version=4.0&type=js) · [源码](src/MarkerTool/MarkerTool.js) · [压缩源码](src/MarkerTool/MarkerTool.min.js) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
+
+### 自定义覆盖物
+
+![自定义覆盖物预览](images/TextIconOverlay.png)
+
+由文字和图标组成的地图覆盖物，继承自 `Overlay`。
+
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/overlay-info/texticon-overlay.html?version=4.0&type=js) · [源码](src/TextIconOverlay/TextIconOverlay.js) · [压缩源码](src/TextIconOverlay/TextIconOverlay.min.js) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
+
+### 拉框放大工具
+
+![拉框放大工具预览](images/RectangleZoom.png)
+
+支持在地图上执行拉框放大或缩小操作，并可自定义缩放动画和遮盖层样式。
+
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/draw-edit/rectangle-zoom.html?version=4.0&type=js) · [源码](src/RectangleZoom/RectangleZoom.js) · [压缩源码](src/RectangleZoom/RectangleZoom.min.js) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
+
+### 区域限制
+
+![区域限制预览](images/AreaRestriction.png)
+
+通过设置 `Bounds` 限定地图可浏览区域。
+
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/search-control/area-restriction.html?version=4.0&type=js) · [源码](src/AreaRestriction/AreaRestriction.js) · [压缩源码](src/AreaRestriction/AreaRestriction.min.js) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
+
+### 几何运算
+
+![几何运算预览](images/GeoUtils.png)
+
+提供点与矩形、圆形、多边形线、多边形面关系判断，以及折线长度和多边形面积计算。
+
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/draw-edit/geoutils.html?version=4.0&type=js) · [源码](src/GeoUtils/GeoUtils.js) · [压缩源码](src/GeoUtils/GeoUtils.min.js) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
+
+### 轨迹动画
+
+![轨迹动画预览](images/TrackAnimation.png)
+
+提供地图视角沿轨迹运动的动画展示效果。
+
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/track-animation/trackanimation.html?version=4.0&type=js) · [源码](src/TrackAnimation/TrackAnimation.js) · [压缩源码](src/TrackAnimation/TrackAnimation.min.js) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
+
+### 时间轴
+
+![时间轴预览](images/Timeline.png)
+
+提供时间轴控件，支持播放和暂停，方便结合地图展示时序数据。
+
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/track-animation/timeline.html?version=4.0&type=js) · [源码](src/Timeline/Timeline.js) · [压缩源码](src/Timeline/Timeline.min.js) · [样式](src/Timeline/Timeline.css) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
+
+### 卷帘对比
+
+![卷帘对比预览](images/Swipe.png)
+
+叠加两张地图，通过拖拽中线实现左右卷帘对比。
+
+[在线示例](https://lbs.baidu.com/jsapi/demo/plugin-old/search-control/swipe.html?version=4.0&type=js) · [源码](src/Swipe/Swipe.js) · [压缩源码](src/Swipe/Swipe.min.js) · [样式](src/Swipe/Swipe.css) · [类参考](http://huiyan-fe.github.io/BMap-JavaScript-library/)
